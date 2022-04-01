@@ -1,0 +1,15 @@
+.login_form{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 60%;
+    border: 1px solid black;
+}
+.login_form > *{
+    padding: 10px;
+    margin: auto;
+}
+.login_form input{
+    padding: 10px;
+    margin: 10px;
+}
