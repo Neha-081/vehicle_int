@@ -4,6 +4,7 @@ import "../styles/shop.css";
 import { addCartData } from '../store/cartReducer/actions';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { historyCartData } from '../store/orderHistory/actions';
 
 function Cart() {
     const { cart } = useSelector((store) => ({ ...store }));
@@ -23,8 +24,23 @@ const handleRemove = (id) => {
   },0)
 
   const buyCheck=()=>{
+
+if (typeof window != undefined) {
+    if (localStorage.getItem("vehicleData")) {
+      let myOrderData = JSON.parse(localStorage.getItem("vehicleData"))
+    //   let newOrderData=localStorage.setItem("orderData",JSON.stringify(myOrderData))
+      dispatch(historyCartData(myOrderData))
+      localStorage.setItem("vehicleData", JSON.stringify([]))
+    }
+  }
+  dispatch(addCartData([]))
+//   toast.success("Payment Successful")
 alert("Payment Successfull")
-navigate('/')
+
+  setTimeout(() => {
+    navigate("/")
+  }, 3000)
+
   }
   return (
     <div>

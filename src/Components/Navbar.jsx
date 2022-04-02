@@ -14,6 +14,7 @@ function Navbar() {
     <div style={{padding:15,backgroundColor:"gray"}}>
   <Link to='/' className='home'>HOME</Link>
   <Link to='/cart' className='home'>CART <span className='cartlen'>({cart.length})</span></Link>
+  <Link to='/myorders' className='home'>MY ORDERS</Link>
     </div>
   )
 }

@@ -11,6 +11,7 @@ import Shop from './Components/Shop';
 import { Route, Routes } from 'react-router';
 import VehicleDetail from './Components/VehicleDetail';
 import Cart from './Components/Cart';
+import MyOrders from './Components/MyOrders';
 
 
 
@@ -40,6 +41,7 @@ getDataVehicle()
         <Route path={'/'} element={<Shop/>}></Route>
         <Route path={'/vehicle/:vehicleid'} element={<VehicleDetail/>}></Route>
         <Route path={'/cart'} element={<Cart/>}></Route>
+        <Route path={'/myorders'} element={<MyOrders/>}></Route>
       </Routes>
     </div>
   );
