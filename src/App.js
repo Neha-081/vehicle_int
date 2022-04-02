@@ -2,13 +2,15 @@
 import './App.css';
 import { useEffect } from 'react';
 import axios from 'axios';
-import { getDataSuccess } from './store/actions';
 import { useDispatch } from 'react-redux';
+import { getDataSuccess } from './store/shopReducer/actions';
+
 
 import Navbar from './Components/Navbar';
 import Shop from './Components/Shop';
 import { Route, Routes } from 'react-router';
 import VehicleDetail from './Components/VehicleDetail';
+import Cart from './Components/Cart';
 
 
 
@@ -30,11 +32,14 @@ getDataVehicle()
 },[dispatch])
 
   return (
+    
     <div className="App">
+      {/* <ToastContainer/> */}
     <Navbar/>
       <Routes>
         <Route path={'/'} element={<Shop/>}></Route>
         <Route path={'/vehicle/:vehicleid'} element={<VehicleDetail/>}></Route>
+        <Route path={'/cart'} element={<Cart/>}></Route>
       </Routes>
     </div>
   );

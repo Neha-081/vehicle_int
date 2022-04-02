@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 function Shop() {
-  const {  data } = useSelector((store) => store.vehicle);
+  const {  data } = useSelector((store) => store.shop.vehicle);
 
   let [newData,setNewData]=useState();
   // setNewData(data);

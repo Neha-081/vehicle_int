@@ -29,4 +29,17 @@
     color: white;
     font-size: 22px;
     font-weight: bold;
+    margin: 0 20px;
+}.carthead td{
+    font-weight: bold;
+    font-size: 20px;
+    color: brown;
+}.remove{
+    color: rgb(240, 33, 33);
+    font-weight: bold
+}.cartlen{
+    color: rgb(224, 174, 174);
+}#pricep{
+    color: rgb(201, 58, 58);
+    font-weight: bold;
 }
