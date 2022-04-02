@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import data from '../data.json';
-import './shop.css'
-// console.log(data);
+
+import '../styles/shop.css';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 
 
 
 function Shop() {
-  console.log(data);
+  const {  data } = useSelector((store) => store.vehicle);
 
   let [newData,setNewData]=useState();
   // setNewData(data);
@@ -40,9 +42,8 @@ const handleDiscount=()=>{
 
 const onlinePayment=()=>{
   setNewData(()=>{
-    return [...data.filter((a)=>{
-          
-      return a.id=2
+    return [...data.sort((a,b)=>{
+      return +a.id%2 - +b.id%2
       
     })]
   })
@@ -52,7 +53,7 @@ const onlinePayment=()=>{
   const handleAll=()=>{
     setNewData(()=>{
       return [...data.sort((a,b)=>{
-        return +a.shopName.split(" ")[1] - +b.shopName.split(" ")[1]
+       return +a.id - +b.id
       })]
     })
     }
@@ -78,7 +79,7 @@ const onlinePayment=()=>{
     data.map(e=>(
       <div className="card" key={e.id}>
 
-  <h4>Shop Name : {e.shopName}</h4> 
+  <h4 className='shopname'>{e.shopName.toUpperCase()}</h4> 
   <p><span className='type'>Street :</span> {e.streetName}</p>
   <p><span className='type'>Address :</span> {e.streetAddress}</p>
   <p><span className='type'>Radius :</span> {Math.abs(e.radius[1])} </p>
@@ -88,7 +89,7 @@ const onlinePayment=()=>{
   {/* <img className="card-img-top" src="..." alt="Card image cap"/> */}
   <div className="card-body">
     <h5 className="card-title"><span className='type'>Price Charge : ₹</span>{e.price}</h5>
-    <a href="#" className="btn btn-primary">Proceed</a>
+    <Link to={`/vehicle/${e.id}`} className="btn btn-primary">Proceed</Link>
   </div>
 </div>
     ))

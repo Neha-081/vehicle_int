@@ -1,4 +1,6 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import '../styles/shop.css'
 
 function Navbar() {
 
@@ -7,7 +9,7 @@ function Navbar() {
 
   return (
     <div style={{padding:15,backgroundColor:"gray"}}>
-  navbar
+  <Link to='/' className='home'>HOME</Link>
     </div>
   )
 }
