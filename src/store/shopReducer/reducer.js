@@ -1,7 +1,7 @@
 import {
     GET_DATA,
     GET_DATA_SUCCESS,
-    GET_SINGLE_DATA_SUCCESS
+
   } from "./actionTypes.js";
   
   const init = {

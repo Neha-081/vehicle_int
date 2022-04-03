@@ -13,7 +13,7 @@ const VehicleDetail=()=>{
     const {  data } = useSelector((store) => store.shop.vehicle);
     const { cart } = useSelector((store) => ({ ...store }));
         const {vehicleid}=useParams()
-    const viewSingleData = data.filter((item) => Number(item.id) == Number(vehicleid));
+    const viewSingleData = data.filter((item) => Number(item.id) === Number(vehicleid));
     // console.log(viewSingleData);
 
     const dispatch=useDispatch()
@@ -60,7 +60,7 @@ const VehicleDetail=()=>{
   <p><span className='type'>Direction :</span> {e.radiuss}</p>
   <p><span className='type'>Type :</span> {e.type}</p>
   <p><span className='type'>Discounts :</span> {Math.abs(e.radius[0])} %</p>
-  <p><span className='type'>Online Payment : </span>{e.id%2==0 ? "Available" : "Unavailable"}</p>
+  <p><span className='type'>Online Payment : </span>{e.id%2===0 ? "Available" : "Unavailable"}</p>
   {/* <img className="card-img-top" src="..." alt="Card image cap"/> */}
     <p className="card-title"><span className='type'>Price Charge : </span>₹{e.price}</p>
   <div className="card-body">
