@@ -11,7 +11,7 @@ function Shop() {
   
   const {  data } = useSelector((store) => store.shop.vehicle);
 
-  const [newData,setNewData]=useState();
+  const [,setNewData]=useState();
   const [filterName, setFilterName] = useState('')
   // setNewData(data);
   // console.log("new",newData);
@@ -96,7 +96,7 @@ const onlinePayment=()=>{
   <p><span className='type'>Radius :</span> {Math.abs(e.radius[1])} </p>
   <p><span className='type'>Vehicle :</span> {e.vehicle}</p>
   <p><span className='type'>Discounts :</span> {Math.abs(e.radius[0])} %</p>
-  <p><span className='type'>Online Payment : </span>{e.id%2==0 ? "Available" : "Unavailable"}</p>
+  <p><span className='type'>Online Payment : </span>{e.id%2===0 ? "Available" : "Unavailable"}</p>
   {/* <img className="card-img-top" src="..." alt="Card image cap"/> */}
   <div className="card-body">
     <h5 className="card-title"><span className='type'>Price Charge : ₹</span>{e.price}</h5>

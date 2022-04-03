@@ -68,7 +68,7 @@ alert("Payment Successfull")
 
 
   let total=cart.reduce((curr,el)=>{
-    if(promoCode=='GET50'){
+    if(promoCode==='GET50'){
 
       // setPromoCodeMsg('coupan applied')
     return curr+=Number(el.price/2)
@@ -119,6 +119,7 @@ alert("Payment Successfull")
       <h2 className='lead fw-bold' >Total Amount : <span id="pricep">₹ {total}</span></h2>
 
     promo code :
+    <p>Try Coupans : GET50 , GET25</p>
 
     <input type="text" value={promoCode} onChange={(e) => setPromoCode(e.target.value)} />
             {promoCodeMsg && <p>{promoCodeMsg}</p>}
