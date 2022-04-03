@@ -8,12 +8,17 @@ import { Link } from 'react-router-dom';
 
 
 function Shop() {
+  
   const {  data } = useSelector((store) => store.shop.vehicle);
 
-  let [newData,setNewData]=useState();
+  const [newData,setNewData]=useState();
+  const [filterName, setFilterName] = useState('')
   // setNewData(data);
   // console.log("new",newData);
 
+
+
+    
 const handleRadius=()=>{
 setNewData(()=>{
   return [...data.sort((a,b)=>{
@@ -48,7 +53,6 @@ const onlinePayment=()=>{
     })]
   })
   }
-  
 
   const handleAll=()=>{
     setNewData(()=>{
@@ -58,14 +62,21 @@ const onlinePayment=()=>{
     })
     }
 
+    
 
+// console.log(data,'dat')
 
   return (
     <div>
+      <h4>Select your location</h4>
+      <select  value={filterName} onChange={(e) => setFilterName(e.target.value)}>
+      <option value={''}>All</option>
+        {data.map((item)=> <option key={item.id} value={item.streetName}>{item.streetName}</option> )}
+      </select>
 <h1>SHOP PAGE</h1>
 
 <div className='sort'>
-  <h3>Filter By :</h3>
+  <h3>Sort By :</h3>
   <button onClick={()=>handleAll()}>All shops</button>
   <button onClick={()=>handleRadius()}>Radius</button>
   <button onClick={()=>onlinePayment()}>Online Payment</button>
@@ -76,9 +87,9 @@ const onlinePayment=()=>{
 
 <div id='main'>
 {
-    data.map(e=>(
-      <div className="card" key={e.id}>
 
+    data.filter((item) => item.streetName.includes(filterName)).map(e=>(
+      <div className="card" key={e.id}>
   <h4 className='shopname'>{e.shopName.toUpperCase()}</h4> 
   <p><span className='type'>Street :</span> {e.streetName}</p>
   <p><span className='type'>Address :</span> {e.streetAddress}</p>

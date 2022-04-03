@@ -4,7 +4,7 @@ import "../styles/shop.css"
 
 function MyOrders() {
     const history=useSelector(store=>store.history)
-  console.log("hhisro",history);
+//   console.log("hhisro",history);
   return (
     <div>
         <h1>My Orders</h1>
@@ -25,7 +25,7 @@ function MyOrders() {
             <td>Vehicle</td>
         </tr>
           {history.map((e) => (
-            <tr key={e.id}>
+            <tr key={e.id} className='cartlist'>
               <td>{e.shopName}</td>
               <td className="price" >₹{e.price}</td>
               <td className="price" >{Math.abs(e.radius[0])}%</td>
